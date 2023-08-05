@@ -16,11 +16,11 @@ import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
 import FlagOutlined from "@mui/icons-material/FlagOutlined";
 import HelpOutlineOutlined from "@mui/icons-material/HelpOutlineOutlined";
 import FeedbackOutlined from "@mui/icons-material/FeedbackOutlined";
-import YoutubeShortsSvg from "../assets/iconpacks-youtube-shorts.svg";
-import YoutubeMusicSvg from "../assets/icons8-youtube-music.svg";
-import YoutubeKidsSvg from "../assets/icons8-youtube-kids.svg";
-import YoutubeSvg from "../assets/icons8-youtube.svg";
-import Icon from "./Icon";
+import { ReactComponent as YoutubeShortsSvg } from "../assets/iconpacks-youtube-shorts.svg";
+import { ReactComponent as YoutubeMusicSvg } from "../assets/icons8-youtube-music.svg";
+import { ReactComponent as YoutubeKidsSvg } from "../assets/icons8-youtube-kids.svg";
+import { ReactComponent as YoutubeSvg } from "../assets/icons8-youtube.svg";
+import SvgIcon from "./SvgIcon";
 
 const Container = styled.div`
   flex: 1;
@@ -101,7 +101,10 @@ function Menu() {
           <HomeIcon /> Home
         </Item>
         <Item>
-          <Icon src={YoutubeShortsSvg} alt="youtube-shorts" /> Shorts
+          <SvgIcon>
+            <YoutubeShortsSvg />
+          </SvgIcon>
+          Shorts
         </Item>
         <Item>
           <SubscriptionsOutlinedIcon /> Subscription
@@ -154,13 +157,22 @@ function Menu() {
       <Section>
         <SectionTitle>More from iTube</SectionTitle>
         <Item>
-          <Icon src={YoutubeSvg} alt="youtube" /> iTube Premium
+          <SvgIcon>
+            <YoutubeSvg />
+          </SvgIcon>
+          iTube Premium
         </Item>
         <Item>
-          <Icon src={YoutubeMusicSvg} alt="youtube-music" /> iTube Music
+          <SvgIcon>
+            <YoutubeMusicSvg />
+          </SvgIcon>
+          iTube Music
         </Item>
         <Item>
-          <Icon src={YoutubeKidsSvg} alt="youtube-kids" /> iTube Kids
+          <SvgIcon>
+            <YoutubeKidsSvg />
+          </SvgIcon>
+          iTube Kids
         </Item>
       </Section>
       <Section>
