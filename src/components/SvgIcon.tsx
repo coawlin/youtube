@@ -1,16 +1,21 @@
 import { PropsWithChildren } from "react";
 import { styled } from "styled-components";
 
-const Container = styled.div`
+type Size = "sm" | "md";
+
+const Container = styled.div<{ $size: Size }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1.5em;
-  height: 1.5em;
+  width: ${(props) => (props.$size === "md" ? "2.5em" : "1.5em")};
+  height: ${(props) => (props.$size === "md" ? "2.5em" : "1.5em")};
 `;
 
-function SvgIcon({ children }: PropsWithChildren) {
-  return <Container>{children}</Container>;
+function SvgIcon({
+  children,
+  size = "sm",
+}: PropsWithChildren<{ size?: Size }>) {
+  return <Container $size={size}>{children}</Container>;
 }
 
 export default SvgIcon;

@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   flex: 7;
-  margin-top: 70px;
+  margin-top: 60px;
 `;
 
 function App() {

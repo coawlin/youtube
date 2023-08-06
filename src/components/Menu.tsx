@@ -3,7 +3,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
 import VideoLibraryOutlinedIcon from "@mui/icons-material/VideoLibraryOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
 import MusicNoteOutlinedIcon from "@mui/icons-material/MusicNoteOutlined";
 import MovieCreationOutlinedIcon from "@mui/icons-material/MovieCreationOutlined";
@@ -11,21 +10,22 @@ import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import CheckroomOutlinedIcon from "@mui/icons-material/CheckroomOutlined";
-import AddCircleOutlineOutlined from "@mui/icons-material/AddCircleOutlineOutlined";
-import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
-import FlagOutlined from "@mui/icons-material/FlagOutlined";
-import HelpOutlineOutlined from "@mui/icons-material/HelpOutlineOutlined";
-import FeedbackOutlined from "@mui/icons-material/FeedbackOutlined";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
 import { ReactComponent as YoutubeShortsSvg } from "../assets/iconpacks-youtube-shorts.svg";
 import { ReactComponent as YoutubeMusicSvg } from "../assets/icons8-youtube-music.svg";
 import { ReactComponent as YoutubeKidsSvg } from "../assets/icons8-youtube-kids.svg";
 import { ReactComponent as YoutubeSvg } from "../assets/icons8-youtube.svg";
 import SvgIcon from "./SvgIcon";
+import SignInButton from "./SignInButton";
 
 const Container = styled.div`
   flex: 1;
-  margin-top: 70px;
-  height: calc(100vh - 70px);
+  margin-top: 50px;
+  height: calc(100vh - 50px);
   background-color: ${(props) => props.theme.bg};
   color: ${(props) => props.theme.text};
   overflow-y: scroll;
@@ -40,10 +40,10 @@ const Container = styled.div`
     border-radius: 15px;
   }
 `;
-const Section = styled.div<{ padding?: string }>`
+const Section = styled.div`
   display: flex;
   flex-direction: column;
-  padding: ${(props) => (props.padding ? props.padding : "10px 15px")};
+  padding: 10px 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   &:last-child {
@@ -64,33 +64,12 @@ const Item = styled.a`
   user-select: none;
   -webkit-user-select: none;
 
-  svg {
-  }
-
   &:hover {
     background-color: ${(props) => props.theme.bgLighter};
   }
 `;
 const Text = styled.span`
   margin: 10px;
-`;
-
-const SignInButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background-color: transparent;
-  border: 1px solid #065fd4;
-  border-radius: 15px;
-  padding: 3px 8px;
-  color: #065fd4;
-  width: 100px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-
-  &:hover {
-    background-color: #def1ff;
-  }
 `;
 
 function Menu() {
@@ -120,10 +99,7 @@ function Menu() {
       </Section>
       <Section>
         <Text>Sign in to like videos, comment, and subscribe.</Text>
-        <SignInButton>
-          <AccountCircleOutlinedIcon />
-          Sign in
-        </SignInButton>
+        <SignInButton style={{ marginLeft: "10px", marginBottom: "10px" }} />
       </Section>
       <Section>
         <SectionTitle>Explore</SectionTitle>
@@ -151,7 +127,7 @@ function Menu() {
       </Section>
       <Section>
         <Item>
-          <AddCircleOutlineOutlined /> Browse channels
+          <AddCircleOutlineOutlinedIcon /> Browse channels
         </Item>
       </Section>
       <Section>
@@ -177,16 +153,16 @@ function Menu() {
       </Section>
       <Section>
         <Item>
-          <SettingsOutlined /> Settings
+          <SettingsOutlinedIcon /> Settings
         </Item>
         <Item>
-          <FlagOutlined /> Report History
+          <FlagOutlinedIcon /> Report History
         </Item>
         <Item>
-          <HelpOutlineOutlined /> Help
+          <HelpOutlineOutlinedIcon /> Help
         </Item>
         <Item>
-          <FeedbackOutlined /> Send feeback
+          <FeedbackOutlinedIcon /> Send feeback
         </Item>
       </Section>
     </Container>
