@@ -5,7 +5,7 @@ import MicIcon from "@mui/icons-material/Mic";
 import { ReactComponent as YoutubeSvg } from "../assets/icons8-youtube.svg";
 import SvgIcon from "./SvgIcon";
 import { useState } from "react";
-import SettingContextMenu from "./SettingContextMenu";
+import DropDownSettings from "./Settings";
 
 const Container = styled.div`
   height: 60px;
@@ -92,16 +92,10 @@ const SettingContainer = styled.div`
 `;
 function Navbar() {
   const [isInputFocused, setIsInputFocused] = useState(false);
-  const [isSettingContextOpened, setIsSettingOpened] = useState(false);
-
   const handleFocus = () => {
     setIsInputFocused((isFocus) => {
       return !isFocus;
     });
-  };
-
-  const handleSettingClick = () => {
-    setIsSettingOpened((open) => !open);
   };
 
   return (
@@ -145,17 +139,14 @@ function Navbar() {
         </MicIconContainer>
       </Section>
       <Section>
-        <SettingContainer onClick={handleSettingClick}>
-          <HamburgerMenu style={{ marginRight: "10px" }}>
-            <HamburgerMenuLine $width={"2px"} />
-            <HamburgerMenuLine $width={"2px"} />
-            <HamburgerMenuLine $width={"2px"} />
-          </HamburgerMenu>
-          <SettingContextMenu
-            open={isSettingContextOpened}
-            // the width of setting button is 40px
-            left="40px"
-          ></SettingContextMenu>
+        <SettingContainer>
+          <DropDownSettings style={{ marginRight: "10px" }}>
+            <HamburgerMenu>
+              <HamburgerMenuLine $width={"2px"} />
+              <HamburgerMenuLine $width={"2px"} />
+              <HamburgerMenuLine $width={"2px"} />
+            </HamburgerMenu>
+          </DropDownSettings>
         </SettingContainer>
         <SignInButton />
       </Section>
