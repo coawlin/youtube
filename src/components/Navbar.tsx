@@ -6,6 +6,7 @@ import { ReactComponent as YoutubeSvg } from "../assets/icons8-youtube.svg";
 import SvgIcon from "./SvgIcon";
 import { useState } from "react";
 import DropDownSettings from "./Settings";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -43,10 +44,11 @@ const HamburgerMenuLine = styled.div<{ $width: string }>`
 const LogoText = styled.h2`
   color: ${(props) => props.theme.text};
 `;
-const HomeButton = styled.a`
+const HomeButton = styled(Link)`
   text-decoration: none;
   display: flex;
   align-items: center;
+  text-decoration: none;
 `;
 const SearchBarOuterContainer = styled.div`
   width: 700px;
@@ -106,7 +108,7 @@ function Navbar() {
           <HamburgerMenuLine $width={"20px"} />
           <HamburgerMenuLine $width={"20px"} />
         </HamburgerMenu>
-        <HomeButton>
+        <HomeButton to="/youtube-clone/">
           <SvgIcon size="md">
             <YoutubeSvg />
           </SvgIcon>
