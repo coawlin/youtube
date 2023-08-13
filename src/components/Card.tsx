@@ -1,10 +1,15 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 
-const Container = styled(Link)`
+type CardProps = {
+  width?: string;
+};
+
+const Container = styled(Link)<{ $width?: string }>`
   display: flex;
   flex-direction: column;
-  width: calc((100% / var(--items-per-row)) - 20px);
+  width: ${(props) =>
+    props.$width ? props.$width : "calc((100% / var(--items-per-row)) - 20px)"};
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 40px;
@@ -50,9 +55,9 @@ const ChannelName = styled(DescriptionText)``;
 const UploadTime = styled(DescriptionText)``;
 const Views = styled(DescriptionText)``;
 
-function Card() {
+function Card({ width }: CardProps) {
   return (
-    <Container to="video/test">
+    <Container $width={width} to="video/test">
       <Thumbnail src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKEjSXPfT9964KguZORvSuvHNVS6bIqxopAg&usqp=CAU" />
       <Wrapper>
         <ChannelImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV3gNSPVEkZs0YPNs1Gqzpmmha088_t2C-0A&usqp=CAU" />
