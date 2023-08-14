@@ -1,11 +1,9 @@
 import { ThemeProvider, styled } from "styled-components";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
-import Home from "./pages/Home";
 import { useState } from "react";
 import { darkTheme, lightTheme } from "./utils/theme";
-import { Route, Routes } from "react-router-dom";
-import Video from "./pages/Video";
+import { Outlet } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -23,12 +21,7 @@ function App() {
         <Navbar></Navbar>
         <Menu></Menu>
         <Wrapper>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="video">
-              <Route path=":id" element={<Video />} />
-            </Route>
-          </Routes>
+          <Outlet />
         </Wrapper>
       </Container>
     </ThemeProvider>

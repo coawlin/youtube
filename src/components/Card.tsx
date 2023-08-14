@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
+import { BasePath } from "../utils/constants";
 
 type CardProps = {
   width?: string;
@@ -57,7 +58,7 @@ const Views = styled(DescriptionText)``;
 
 function Card({ width }: CardProps) {
   return (
-    <Container $width={width} to="video/test">
+    <Container $width={width} to={{pathname: `${BasePath}/video/test`}} relative="route">
       <Thumbnail src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKEjSXPfT9964KguZORvSuvHNVS6bIqxopAg&usqp=CAU" />
       <Wrapper>
         <ChannelImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV3gNSPVEkZs0YPNs1Gqzpmmha088_t2C-0A&usqp=CAU" />
