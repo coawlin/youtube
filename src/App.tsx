@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 
 function App() {
   const [isDarkTheme] = useState(false);
+
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <Container>

@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 import { BasePath } from "../utils/constants";
+import { Video } from "../pages/Home";
 
 type CardProps = {
   width?: string;
@@ -48,29 +49,34 @@ const Title = styled.div`
   font-weight: bold;
   color: ${(props) => props.theme.text};
 `;
-const MoreInfo = styled.div`
-  display: flex;
-  gap: 2px;
-`;
-const ChannelName = styled(DescriptionText)``;
-const UploadTime = styled(DescriptionText)``;
-const Views = styled(DescriptionText)``;
+const MoreInfo = styled(DescriptionText)``;
+const ChannelTitle = styled(DescriptionText)``;
 
-function Card({ width }: CardProps) {
+function Card(props: CardProps & Video) {
+  const {
+    width,
+    id,
+    title,
+    channelTitle,
+    views,
+    publishedAt,
+    channelImg,
+    thumbnail,
+  } = props;
   return (
-    <Container $width={width} to={{pathname: `${BasePath}/video/test`}} relative="route">
-      <Thumbnail src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKEjSXPfT9964KguZORvSuvHNVS6bIqxopAg&usqp=CAU" />
+    <Container
+      $width={width}
+      to={{ pathname: `${BasePath}/video/${id}` }}
+      relative="route"
+    >
+      <Thumbnail src={`${thumbnail.high.url}`} />
       <Wrapper>
-        <ChannelImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV3gNSPVEkZs0YPNs1Gqzpmmha088_t2C-0A&usqp=CAU" />
+        <ChannelImg src={`${channelImg.high.url}`} />
         <Description>
-          <Title>
-            Positive Vibes Music Top100 freestar freestar Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit.on porttitor sem. Ph
-          </Title>
-          <ChannelName>Dreamy Vibez</ChannelName>
+          <Title>{title}</Title>
+          <ChannelTitle>{channelTitle}</ChannelTitle>
           <MoreInfo>
-            <Views>2.4M views · </Views>
-            <UploadTime>2 months ago</UploadTime>
+            {views} views ·{publishedAt}
           </MoreInfo>
         </Description>
       </Wrapper>

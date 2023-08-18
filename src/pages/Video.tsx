@@ -3,8 +3,8 @@ import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
-import Card from "../components/Card";
 import Comment from "../components/Comment";
+import { useParams } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -96,13 +96,15 @@ const DescriptionText = styled(Text)`
 const CommentsSection = styled.div``;
 
 function Video() {
+  const { id } = useParams();
+
   return (
     <Container>
       <Wrapper>
         <iframe
           width="100%"
           height="700px"
-          src="https://www.youtube.com/embed/xMrC3TE3rtE"
+          src={`https://www.youtube.com/embed/${id}`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -169,13 +171,13 @@ function Video() {
         </CommentsSection>
       </Wrapper>
       <Recommendations>
+        {/* <Card width="100%" />
         <Card width="100%" />
         <Card width="100%" />
         <Card width="100%" />
         <Card width="100%" />
         <Card width="100%" />
-        <Card width="100%" />
-        <Card width="100%" />
+        <Card width="100%" /> */}
       </Recommendations>
     </Container>
   );
