@@ -15,6 +15,7 @@ export type Video = {
   publishedAt: string;
   views: string;
   channelImg: Thumbnails;
+  duration: string;
 };
 
 const Container = styled.div`
@@ -45,6 +46,7 @@ function Home() {
         eventType: "none",
         maxResults: 5,
         type: "video",
+        videoDuration: "medium",
       },
     });
 
@@ -53,7 +55,10 @@ function Home() {
         return youtubeApi.get<VideoListResponse>("/videos", {
           params: {
             id: item.id.videoId,
-            part: "statistics",
+            part: ["statistics", "contentDetails"],
+          },
+          paramsSerializer: {
+            indexes: null,
           },
         });
       })
@@ -71,6 +76,9 @@ function Home() {
 
     const videos = searchItems.map((item, index) => {
       const views = videoResponses[index].data.items[0].statistics.viewCount;
+      const duration =
+        videoResponses[index].data.items[0].contentDetails.duration;
+      videoResponses[index].data.items[0].contentDetails.duration;
       const channelImg =
         channelResponses[index].data.items[0].snippet.thumbnails;
       return {
@@ -81,6 +89,7 @@ function Home() {
         publishedAt: item.snippet.publishedAt,
         views,
         channelImg,
+        duration,
       };
     });
 

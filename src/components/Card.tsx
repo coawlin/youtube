@@ -18,10 +18,25 @@ const Container = styled(Link)<{ $width?: string }>`
   gap: 5px;
   text-decoration: none;
 `;
-const Thumbnail = styled.img`
-  object-fit: cover;
+const ThumbnailWrapper = styled.div`
+  position: relative;
   height: 200px;
   border-radius: 10px;
+`;
+const Thumbnail = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+`;
+const Duration = styled.p`
+  display: block;
+  position: absolute;
+  background-color: ${(props) => props.theme.bgReverse};
+  color: ${(props) => props.theme.bg};
+  font-size: 0.9em;
+  bottom: 5px;
+  right: 5px;
+  padding: 5px;
 `;
 const ChannelImg = styled.img`
   width: 30px;
@@ -40,8 +55,9 @@ const Description = styled.div`
 const DescriptionText = styled.span`
   color: ${(props) => props.theme.textSoft};
 `;
-const Title = styled.div`
+const Title = styled.h1`
   display: -webkit-box;
+  font-size: 1.15em;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -62,14 +78,36 @@ function Card(props: CardProps & Video) {
     publishedAt,
     channelImg,
     thumbnail,
+    duration,
   } = props;
+
+  const convertDuration = (duration: string) => {
+    const timeParts = duration
+      .replace("PT", "")
+      .replace("S", "")
+      .replace("M", ":")
+      .replace("H", ":")
+      .split(":");
+
+    for (let i = 0; i < timeParts.length; i++) {
+      if (i !== 0) {
+        timeParts[i] = timeParts[i].padStart(2, "0");
+      }
+    }
+
+    return timeParts.join(":");
+  };
+
   return (
     <Container
       $width={width}
       to={{ pathname: `${BasePath}/video/${id}` }}
       relative="route"
     >
-      <Thumbnail src={`${thumbnail.high.url}`} />
+      <ThumbnailWrapper>
+        <Thumbnail src={`${thumbnail.high.url}`} />
+        <Duration>{convertDuration(duration)}</Duration>
+      </ThumbnailWrapper>
       <Wrapper>
         <ChannelImg src={`${channelImg.high.url}`} />
         <Description>

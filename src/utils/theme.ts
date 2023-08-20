@@ -1,5 +1,6 @@
 export const darkTheme = {
   bg: "#000",
+  bgReverse: "#fff",
   bgLighter: "rgba(255, 255, 255, 0.1)",
   text: "#f1f1f1",
   textSoft: "#aaa",
@@ -7,6 +8,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   bg: "#fff",
+  bgReverse: "#000",
   bgLighter: "rgba(0, 0, 0, 0.05)",
   text: "#0f0f0f",
   textSoft: "#606060",
