@@ -20,13 +20,14 @@ const Container = styled(Link)<{ $width?: string }>`
 `;
 const ThumbnailWrapper = styled.div`
   position: relative;
-  height: 200px;
   border-radius: 10px;
+  overflow: hidden;
 `;
 const Thumbnail = styled.img`
   object-fit: cover;
   width: 100%;
   height: 100%;
+  aspect-ratio: 16/8.7;
 `;
 const Duration = styled.p`
   display: block;
@@ -36,7 +37,8 @@ const Duration = styled.p`
   font-size: 0.9em;
   bottom: 5px;
   right: 5px;
-  padding: 5px;
+  padding: 2px 5px;
+  border-radius: 5px;
 `;
 const ChannelImg = styled.img`
   width: 30px;
@@ -57,7 +59,7 @@ const DescriptionText = styled.span`
 `;
 const Title = styled.h1`
   display: -webkit-box;
-  font-size: 1.15em;
+  font-size: 1.1em;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
